@@ -1,0 +1,65 @@
+{
+  "name": "react-core",
+  "description": "Components, hooks and utils to be used in react project.",
+  "homepage": "https://github.com/untile/react-core#readme",
+  "bugs": {
+    "url": "https://github.com/untile/react-core/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/untile/react-core.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Untile",
+    "email": "hello@untile.pt",
+    "url": "https://untile.pt"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/components",
+      "packages/hooks",
+      "packages/styles",
+      "packages/utils"
+    ]
+  },
+  "scripts": {
+    "bootstrap": "yarn install",
+    "bootstrap:components": "yarn workspaces focus react-core @untile/react-core-components",
+    "bootstrap:hooks": "yarn workspaces focus react-core @untile/react-core-hooks",
+    "bootstrap:styles": "yarn workspaces focus react-core @untile/react-core-styles",
+    "bootstrap:utils": "yarn workspaces focus react-core @untile/react-core-utils",
+    "build": "yarn turbo run build",
+    "build:components": "yarn workspace @untile/react-core-components build",
+    "build:hooks": "yarn workspace @untile/react-core-hooks build",
+    "build:styles": "yarn workspace @untile/react-core-styles build",
+    "build:utils": "yarn workspace @untile/react-core-utils build",
+    "lint": "yarn turbo run lint",
+    "pre-commit": "lint-staged",
+    "prepare": "husky install",
+    "release:components": "yarn workspace @untile/react-core-components release",
+    "release:hooks": "yarn workspace @untile/react-core-hooks release",
+    "release:styles": "yarn workspace @untile/react-core-styles release",
+    "release:utils": "yarn workspace @untile/react-core-utils release",
+    "test": "yarn turbo run test"
+  },
+  "lint-staged": {
+    "package.json": [
+      "sort-package-json"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@untile/commitlint-config-untile": "^1.0.0",
+    "@uphold/github-changelog-generator": "uphold/github-changelog-generator#feature/package-name",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.1",
+    "sort-package-json": "^1.57.0",
+    "turbo": "^1.2.16"
+  },
+  "packageManager": "yarn@3.2.1",
+  "validate-branch-name": {
+    "pattern": "^(master|development){1}$|^(bugfix|dependabot|enhancement|feature|hotfix|release|support)/.+$",
+    "errorMsg": "Only the following prefixes are allowed: bugfix|dependabot|enhancement|feature|hotfix|release|support"
+  }
+}
