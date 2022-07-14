@@ -1,25 +1,27 @@
 # React utils
 
-A collection of [Untile](https://github.com/untile) utilities to build web 
+A collection of [Untile](https://github.com/untile) utilities to build web
 applications based on typescript.
 
 ## Utils
 
-### `isExternalUrl`
+<details>
+  <summary><h3>isExternalUrl</h3></summary>
 
-This function checks if the string path is an external url.
+  This function checks if the string path is an external url.
 
-#### Type
+  #### Type
 
-```tsx
-isExternalUrl(url: string): boolean
-```
+  ```tsx
+  isExternalUrl(url: string): boolean
+  ```
 
-#### Usage
+  #### Usage
 
-```jsx
-import { isExternalUrl } from '@untile/react-core/utils/is-external-url';
+  ```jsx
+  import { isExternalUrl } from '@untile/react-core/utils/is-external-url';
 
-isExternalUrl('http://foo.bar'); // true
-isExternalUrl('/foo/bar'); // false
-```
+  isExternalUrl('http://foo.bar'); // true
+  isExternalUrl('/foo/bar'); // false
+  ```
+</details>
