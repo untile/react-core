@@ -1,53 +1,56 @@
 # React Components
 
-A collection of [Untile](https://github.com/untile) react components to build 
+A collection of [Untile](https://github.com/untile) react components to build
 web applications based on react.
 
+<details>
+  <summary><h3>RawHtml</h3></summary>
 
-### `RawHtml`
+  #### Type
 
-#### Type
+  ```tsx
+  interface RawHtmlProps {
+    children: ReactNode;
+    className?: string;
+    element?: string;
+  }
+  ```
 
-```tsx
-interface RawHtmlProps {
-  children: ReactNode;
-  className?: string;
-  element?: string;
-}
-```
+  #### Usage
 
-#### Usage
+  ```jsx
+  import { RawHtml } from '@untile/react-core/components/raw-html';
 
-```jsx
-import { RawHtml } from '@untile/react-core/components/raw-html';
+  <RawHtml element={'div'}>
+    {`foo<br>bar`}
+  </RawHtml>
+  ```
+</details>
 
-<RawHtml element={'div'}>
-  {`foo<br>bar`}
-</RawHtml>
-```
+<details>
+  <summary><h3>Svg</h3></summary>
 
-### `Svg`
+  #### Type
 
-#### Type
+  ```tsx
+  interface SvgProps {
+    className?: string;
+    color?: string;
+    icon: string;
+    size: string | unknown;
+  }
+  ```
 
-```tsx
-interface SvgProps {
-  className?: string;
-  color?: string;
-  icon: string;
-  size: string | unknown;
-}
-```
+  #### Usage
 
-#### Usage
+  ```jsx
+  import { Svg } from '@untile/react-core/components/svg';
+  import svgIcon from './foo/bar.svg';
 
-```jsx
-import { Svg } from '@untile/react-core/components/svg';
-import svgIcon from './foo/bar.svg';
-
-<Svg
-  color={'red'}
-  icon={svgIcon}
-  size={'20px'}
-/>
-```
+  <Svg
+    color={'red'}
+    icon={svgIcon}
+    size={'20px'}
+  />
+  ```
+</details>

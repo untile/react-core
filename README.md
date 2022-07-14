@@ -13,10 +13,10 @@ yarn add @untile/react-core
 
 ## Documentation
 
-- [React components](docs/components/README.md)
-- [React hooks](docs/hooks/README.md)
-- [Styles](docs/styles/README.md)
-- [utils](docs/utils/README.md)
+- [React components 📦](docs/components/README.md)
+- [React hooks 🪝](docs/hooks/README.md)
+- [Styles ✨](docs/styles/README.md)
+- [Utils 🛠️](docs/utils/README.md)
 
 ## Project setup
 

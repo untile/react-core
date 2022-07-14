@@ -1,119 +1,164 @@
 # React Hooks
 
-A collection of [Untile](https://github.com/untile) react hooks to build web 
+A collection of [Untile](https://github.com/untile) react hooks to build web
 applications.
 
 ## Hooks
 
-### `useBodyScroll`
+<details>
+  <summary><h3>useBodyScroll</h3></summary>
 
-This hook updates the body overflow style.
+  This hook updates the body overflow style.
 
-#### Type
+  #### Type
 
-```tsx
-useBodyScroll({ off: boolean }): void
-```
+  ```tsx
+  useBodyScroll({ off: boolean }): void
+  ```
 
-#### Usage
+  #### Usage
 
-```jsx
-import { useBodyScroll } from '@untile/react-core/hooks/use-body-scroll';
+  ```jsx
+  import { useBodyScroll } from '@untile/react-core/hooks/use-body-scroll';
 
-useBodyScroll({ off: true }); // <body style="overflow:hidden;">
-useBodyScroll({ off: false }); // <body style="">
-```
+  useBodyScroll({ off: true }); // <body style="overflow:hidden;">
+  useBodyScroll({ off: false }); // <body style="">
+  ```
+</details>
 
-### `useEventListener`
+<details>
+  <summary><h3>useBreakpoint</h3></summary>
 
-#### Type
+  This hook leverages the use of the breakpoints to return the media-query result.
 
-```tsx
-useEventListener(
-  eventName: EventName,
-  handler: Handler,
-  element?: Element,
-  options?: boolean | AddEventListenerOptions
-): void
-```
+  #### Type
 
-#### Usage
+  ```tsx
+  type Value = Breakpoint | number;
 
-```jsx
-import { useEventListener } from '@untile/react-core/hooks/use-event-listener';
+  useBreakpoint(min: Value, max?: Value): boolean
+  ```
 
-const ref = useRef<HTMLDivElement>();
-const onWindowResize = () => console.log('window resized!');  
-const onScroll = (event: Event) => console.log(event);
-  
-useEventListener('resize', onWindowResize); // no element passed defaults to `window`
-  
-useEventListener('scroll', onScroll, ref);
-```
+  #### Usage
 
-### `useMediaQuery`
+  ```jsx
+  import { useBreakpoint } from '@untile/react-core/hooks/use-breakpoint';
 
-This hook checks if some media query matches with the window width.
+  const isPhoneX = useBreakpoint(0, 375); // Viewports lower than `375px`.
+  const isTablet = useBreakpoint('ms', 1023); // Viewports between `ms` and `1023px`.
+  const isLargeTablet = useBreakpoint(1024, 'lg'); // Viewports between `1024px` and `lg`.
+  const isDesktop = useBreakpoint('md'); // Viewports greater than `md`.
+  ```
+</details>
 
-#### Type
+<details>
+  <summary><h3>useEventListener</h3></summary>
+  It leverages the Event listener setup.
 
-```tsx
-useMediaQuery(query: string): boolean
-```
+  #### Type
 
-#### Usage
+  ```tsx
+  useEventListener(
+    eventName: EventName,
+    handler: Handler,
+    element?: Element,
+    options?: boolean | AddEventListenerOptions
+  ): void
+  ```
 
-```jsx
-import { useMediaQuery } from '@untile/react-core/hooks/use-media-query';
+  #### Usage
 
-const matches = useMediaQuery('(min-width: 480px)'); // true/false
-```
+  ```jsx
+  import { useEventListener } from '@untile/react-core/hooks/use-event-listener';
 
-### `usePrevious`
+  const ref = useRef<HTMLDivElement>();
+  const onWindowResize = () => console.log('window resized!');
+  const onScroll = (event: Event) => console.log(event);
 
-#### Type
+  useEventListener('resize', onWindowResize); // no element passed defaults to `window`
 
-```tsx
-usePrevious<T = any>(value: T): T | undefined
-```
+  useEventListener('scroll', onScroll, ref);
+  ```
+</details>
 
-#### Usage
+<details>
+  <summary><h3>useMediaQuery</h3></summary>
 
-```jsx
-import { usePrevious } from '@untile/react-core/hooks/use-previous';
+  This hook checks if some media query matches with the window width.
 
-const [state, setState] = useState('initial');
-const previousState = usePrevious(state);
-```
+  #### Type
 
-### `useStepper`
+  ```tsx
+  useMediaQuery(query: string): boolean
+  ```
 
-#### Type
+  #### Usage
 
-```tsx
-useStepper<T = string>(props: StepperProps<T>): StepperResult<T>
-```
+  ```jsx
+  import { useMediaQuery } from '@untile/react-core/hooks/use-media-query';
 
-#### Usage
+  const matches = useMediaQuery('(min-width: 480px)'); // true/false
+  ```
+</details>
 
-```jsx
-import { useStepper } from '@untile/react-core/hooks/use-stepper';
+<details>
+  <summary><h3>usePrevious</h3></summary>
 
-useStepper({ steps: [1, 2 , 3] })
-```
+  Uses a reference for a previous value so it can be used in sync with the previous React state updates.
 
-### `useToggle`
+  #### Type
 
-#### Type
+  ```tsx
+  usePrevious<T = any>(value: T): T | undefined
+  ```
 
-```tsx
-useToggle(initialState = false): [boolean, () => void]
-```
+  #### Usage
 
-#### Usage
+  ```jsx
+  import { usePrevious } from '@untile/react-core/hooks/use-previous';
 
-```jsx
-import { useToggle } from '@untile/react-core/hooks/use-toggle';
+  const [state, setState] = useState('initial');
+  const previousState = usePrevious(state);
+  ```
+</details>
 
-const [state, toggle] = useToggle();
-```
+
+<details>
+  <summary><h3>useStepper</h3></summary>
+
+  Provides a way to use step by step like in a wizard.
+
+  #### Type
+
+  ```tsx
+  useStepper<T = string>(props: StepperProps<T>): StepperResult<T>
+  ```
+
+  #### Usage
+
+  ```jsx
+  import { useStepper } from '@untile/react-core/hooks/use-stepper';
+
+  useStepper({ steps: [1, 2 , 3] })
+  ```
+</details>
+
+<details>
+  <summary><h3>useToggle</h3></summary>
+
+  State that toggles between boolean states.
+
+  #### Type
+
+  ```tsx
+  useToggle(initialState = false): [boolean, () => void]
+  ```
+
+  #### Usage
+
+  ```jsx
+  import { useToggle } from '@untile/react-core/hooks/use-toggle';
+
+  const [state, toggle] = useToggle();
+  ```
+</details>
