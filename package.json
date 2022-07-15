@@ -49,13 +49,13 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.2",
-    "@untile/commitlint-config-untile": "^1.0.0",
+    "@commitlint/cli": "~17.0.2",
+    "@untile/commitlint-config-untile": "*",
     "@uphold/github-changelog-generator": "uphold/github-changelog-generator#feature/package-name",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.1",
-    "sort-package-json": "^1.57.0",
-    "turbo": "^1.2.16"
+    "husky": "~8.0.1",
+    "lint-staged": "~13.0.1",
+    "sort-package-json": "~1.57.0",
+    "turbo": "~1.2.16"
   },
   "packageManager": "yarn@3.2.1",
   "validate-branch-name": {
