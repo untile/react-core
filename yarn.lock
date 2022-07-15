@@ -1914,8 +1914,10 @@ __metadata:
     typescript-plugin-styled-components: ^2.0.0
     yarn-deduplicate: ^5.0.0
   peerDependencies:
+    "@jest/types": "*"
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: "*"
     styled-components: ^5.0.0
   languageName: unknown
   linkType: soft
@@ -1948,6 +1950,7 @@ __metadata:
     typescript: ^4.7.3
     yarn-deduplicate: ^5.0.0
   peerDependencies:
+    "@jest/types": "*"
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
@@ -1990,8 +1993,10 @@ __metadata:
     typescript-plugin-styled-components: ^2.0.0
     yarn-deduplicate: ^5.0.0
   peerDependencies:
+    "@jest/types": "*"
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: "*"
     styled-components: ^5.0.0
   languageName: unknown
   linkType: soft
@@ -2015,6 +2020,8 @@ __metadata:
     ts-jest: ^28.0.4
     typescript: ^4.7.3
     yarn-deduplicate: ^5.0.0
+  peerDependencies:
+    "@jest/types": "*"
   languageName: unknown
   linkType: soft
 
