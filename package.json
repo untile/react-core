@@ -49,7 +49,7 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.2",
+    "@commitlint/cli": "^16.2.1",
     "@untile/commitlint-config-untile": "^1.0.0",
     "@uphold/github-changelog-generator": "uphold/github-changelog-generator#feature/package-name",
     "husky": "^8.0.1",
