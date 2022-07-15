@@ -36,7 +36,7 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jsdom",
-    "testRegex": "(src/.*\\.test.ts)$"
+    "testRegex": "(src/.*\\.test.tsx?)$"
   },
   "devDependencies": {
     "@testing-library/react": "12.1.2",
