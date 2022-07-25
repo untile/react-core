@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`'Collapse' component matches snapshot when closed 1`] = `
+<DocumentFragment>
+  <div
+    aria-hidden="true"
+    class="rah-static rah-static--height-zero "
+    style="height: 0px; overflow: hidden;"
+  >
+    <div
+      style="display: none;"
+    >
+      content
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`'Collapse' component matches snapshot when opened 1`] = `
+<DocumentFragment>
+  <div
+    aria-hidden="false"
+    class="rah-static rah-static--height-auto "
+    style="height: auto; overflow: visible;"
+  >
+    <div>
+      content
+    </div>
+  </div>
+</DocumentFragment>
+`;

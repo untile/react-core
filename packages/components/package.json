@@ -41,6 +41,7 @@
     "testRegex": "(src/.*\\.test.(ts|tsx))$"
   },
   "dependencies": {
+    "react-animate-height": "^3.0.4",
     "styled-tools": "^1.7.2"
   },
   "devDependencies": {

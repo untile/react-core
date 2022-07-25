@@ -1120,20 +1120,20 @@ __metadata:
   linkType: hard
 
 "@octokit/openapi-types@npm:^12.10.0":
-  version: 12.10.0
-  resolution: "@octokit/openapi-types@npm:12.10.0"
-  checksum: 379a97d54570cff3bb15f1a8e2b326773ab1d9ecb07c138cc038eb04062cbf78ebb4f85d3bc81b4fd77333af9cb45173e52d152540626caf96845b842cf3d6f6
+  version: 12.10.1
+  resolution: "@octokit/openapi-types@npm:12.10.1"
+  checksum: 2f0e1e90eac1e73a146d9a42e0f13f4ae290a8a465bd39a377dc723af3d5b2dff51c3c6fecd085adbdd8e63f10c94934d32e79a8559981486c78866e477cd84c
   languageName: node
   linkType: hard
 
 "@octokit/plugin-paginate-rest@npm:^2.16.8":
-  version: 2.21.2
-  resolution: "@octokit/plugin-paginate-rest@npm:2.21.2"
+  version: 2.21.3
+  resolution: "@octokit/plugin-paginate-rest@npm:2.21.3"
   dependencies:
-    "@octokit/types": ^6.39.0
+    "@octokit/types": ^6.40.0
   peerDependencies:
-    "@octokit/core": ">=4"
-  checksum: 386727fb2e39be589dc66e2de31da6a4b7f2039ec1829552b64165b435cbb0bddd8431578c8b73ea063209d2f695a5391ad0d3214027349480c39ebdd5fdf09a
+    "@octokit/core": ">=2"
+  checksum: acf31de2ba4021bceec7ff49c5b0e25309fc3c009d407f153f928ddf436ab66cd4217344138378d5523f5fb233896e1db58c9c7b3ffd9612a66d760bc5d319ed
   languageName: node
   linkType: hard
 
@@ -1195,7 +1195,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:^6.0.3, @octokit/types@npm:^6.16.1, @octokit/types@npm:^6.39.0":
+"@octokit/types@npm:^6.0.3, @octokit/types@npm:^6.16.1, @octokit/types@npm:^6.39.0, @octokit/types@npm:^6.40.0":
   version: 6.40.0
   resolution: "@octokit/types@npm:6.40.0"
   dependencies:
@@ -1902,6 +1902,7 @@ __metadata:
     prettier: ^2.6.2
     prettier-eslint: ^15.0.0
     react: ^17.0.2
+    react-animate-height: ^3.0.4
     react-dom: ^17.0.2
     react-test-renderer: 17.0.2
     sort-package-json: ^1.57.0
@@ -2043,7 +2044,7 @@ __metadata:
     moment: ^2.24.0
   bin:
     github-changelog-generator: ./bin/github-changelog-generator.js
-  checksum: 677afc3c66b9be9bc398c2e58d6880a5d9df82bba1afc77d1a0e31a8e344b0476eea70376605c29b5fcd0177bb6c484357a1f7dec8f9df04485c0c19b341dc24
+  checksum: 36c7b9a2d3af52c1354bd9486570c1d08731542ded11fe562eafe9278f5bf55e66eee948817c2da6ba714a1811805fb1660f3bd1b17e9b6517f7df6539a842ca
   languageName: node
   linkType: hard
 
@@ -2789,6 +2790,13 @@ __metadata:
   version: 1.2.2
   resolution: "cjs-module-lexer@npm:1.2.2"
   checksum: 977f3f042bd4f08e368c890d91eecfbc4f91da0bc009a3c557bc4dfbf32022ad1141244ac1178d44de70fc9f3dea7add7cd9a658a34b9fae98a55d8f92331ce5
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "classnames@npm:2.3.1"
+  checksum: 14db8889d56c267a591f08b0834989fe542d47fac659af5a539e110cc4266694e8de86e4e3bbd271157dbd831361310a8293e0167141e80b0f03a0f175c80960
   languageName: node
   linkType: hard
 
@@ -7086,6 +7094,18 @@ __metadata:
   version: 0.26.1
   resolution: "ramda@npm:0.26.1"
   checksum: 19c2730e44c129538151ae034c89be9b2c6a4ccc7c65cff57497418bc532ce09282f98cd927c39b0b03c6bc3f1d1a12d822b7b07f96a1634f4958a6c05b7b384
+  languageName: node
+  linkType: hard
+
+"react-animate-height@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "react-animate-height@npm:3.0.4"
+  dependencies:
+    classnames: ^2.3.1
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 3efa212b41bb1c424c4b5390c1b0e34e85eec799f5ca76fab3223ccb0dff215febc5fd95a07188db85e5a06661ed9f6f3f9b8c68de744d8daad912f298d1bfc2
   languageName: node
   linkType: hard
 
