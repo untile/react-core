@@ -1,5 +1,6 @@
 {
-  "name": "react-core",
+  "name": "@untile/react-core",
+  "version": "0.0.0",
   "description": "Components, hooks and utils to be used in react project.",
   "homepage": "https://github.com/untile/react-core#readme",
   "bugs": {
@@ -15,49 +16,90 @@
     "email": "hello@untile.pt",
     "url": "https://untile.pt"
   },
-  "workspaces": {
-    "packages": [
-      "packages/components",
-      "packages/hooks",
-      "packages/styles",
-      "packages/utils"
-    ]
-  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "bootstrap": "yarn install",
-    "bootstrap:components": "yarn workspaces focus react-core @untile/react-core-components",
-    "bootstrap:hooks": "yarn workspaces focus react-core @untile/react-core-hooks",
-    "bootstrap:styles": "yarn workspaces focus react-core @untile/react-core-styles",
-    "bootstrap:utils": "yarn workspaces focus react-core @untile/react-core-utils",
-    "build": "yarn turbo run build",
-    "build:components": "yarn workspace @untile/react-core-components build",
-    "build:hooks": "yarn workspace @untile/react-core-hooks build",
-    "build:styles": "yarn workspace @untile/react-core-styles build",
-    "build:utils": "yarn workspace @untile/react-core-utils build",
-    "lint": "yarn turbo run lint",
-    "pre-commit": "lint-staged",
+    "build": ".bin/build.sh",
+    "changelog": "echo \"$(github-changelog-generator --future-release=v$npm_package_version)\n$(tail -n +2 CHANGELOG.md)\" > CHANGELOG.md",
+    "lint": "yarn lint:js && yarn lint:styles && yarn lint:types",
+    "lint-staged": "lint-staged",
+    "lint:js": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:styles": "stylelint 'src/**/*.@(ts|tsx|js)'",
+    "lint:types": "tsc --noEmit",
     "prepare": "husky install",
-    "release:components": "yarn workspace @untile/react-core-components release",
-    "release:hooks": "yarn workspace @untile/react-core-hooks release",
-    "release:styles": "yarn workspace @untile/react-core-styles release",
-    "release:utils": "yarn workspace @untile/react-core-utils release",
-    "test": "yarn turbo run test"
+    "test": "jest --coverage --passWithNoTests",
+    "test-watch": "jest --watch --notify --onlyChanged",
+    "version": "npm run changelog && git add -A CHANGELOG.md"
   },
   "lint-staged": {
+    "*.@(ts|tsx)": [
+      "bash -c tsc --noEmit"
+    ],
+    "*.@(ts|tsx|js)": [
+      "prettier --write --ignore-unknown",
+      "eslint --fix",
+      "stylelint"
+    ],
     "package.json": [
       "sort-package-json"
+    ],
+    "yarn.lock": [
+      "yarn-deduplicate"
     ]
+  },
+  "dependencies": {
+    "styled-normalize": "^8.0.7",
+    "styled-tools": "^1.7.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/react-hooks": "8.0.1",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
+    "@types/styled-components": "^5.1.25",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
     "@untile/commitlint-config-untile": "^1.0.0",
-    "@uphold/github-changelog-generator": "uphold/github-changelog-generator#feature/package-name",
+    "@untile/eslint-config-untile-react": "^1.0.0",
+    "@untile/stylelint-config-untile": "^1.0.0",
+    "@uphold/github-changelog-generator": "^3.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-typescript-sort-keys": "^2.1.0",
     "husky": "^8.0.1",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "jest-styled-components": "^7.0.8",
     "lint-staged": "^13.0.1",
-    "sort-package-json": "^1.57.0",
-    "turbo": "^1.2.16"
+    "prettier": "^2.6.2",
+    "prettier-eslint": "^15.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
+    "sort-package-json": "^2.4.1",
+    "styled-components": "^5.3.5",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.5",
+    "typescript-plugin-styled-components": "^2.0.0",
+    "yarn-deduplicate": "^6.0.1"
   },
-  "packageManager": "yarn@3.2.1",
+  "peerDependencies": {
+    "react": "^16.8.0 || 17 || 18",
+    "react-dom": "^16.8.0 || 17 || 18",
+    "styled-components": "5"
+  },
+  "engines": {
+    "node": ">=14.18",
+    "npm": "please-use-yarn",
+    "yarn": ">=1.22.0"
+  },
   "validate-branch-name": {
     "pattern": "^(master|development){1}$|^(bugfix|dependabot|enhancement|feature|hotfix|release|support)/.+$",
     "errorMsg": "Only the following prefixes are allowed: bugfix|dependabot|enhancement|feature|hotfix|release|support"
