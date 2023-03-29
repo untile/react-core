@@ -12,15 +12,8 @@ jobs:
       - name: Get version from tag
         id: tag_name
         run: |
-          echo ::set-output name=current_version::${GITHUB_REF_NAME}
+          echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
         shell: bash
-
-      - name: Get package and version name
-        uses: jungwinter/split@v2
-        id: split
-        with: 
-          msg: ${{steps.tag_name.outputs.current_version}}
-          separator: '/'
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -28,16 +21,15 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: '14.17.0'
-          registry-url: https://registry.npmjs.org/
+          node-version: '14.18.0'
 
       - name: Install module dependencies
-        run: yarn bootstrap:${{ steps.split.outputs._0 }}
+        run: yarn
 
       - name: Build
-        run: yarn build:${{ steps.split.outputs._0 }}
+        run: yarn build
 
       - name: Publish
-        run: npm publish packages/${{ steps.split.outputs._0 }} --access public
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
