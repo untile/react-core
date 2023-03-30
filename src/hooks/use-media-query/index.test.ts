@@ -2,52 +2,49 @@
  * Module dependencies.
  */
 
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { mockMatchMedia } from 'tests/utils';
 import { renderHook } from '@testing-library/react-hooks/dom';
 import { useMediaQuery } from './';
-
-/**
- * Mock match.
- */
-
-function mockMatch(matches: boolean) {
-  Object.defineProperty(window, 'matchMedia', {
-    value: jest.fn().mockImplementation(query => ({
-      addEventListener: jest.fn(),
-      addListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-      matches,
-      media: query,
-      onchange: null,
-      removeEventListener: jest.fn(),
-      removeListener: jest.fn()
-    })),
-    writable: true
-  });
-}
 
 /**
  * Test `useMediaQuery` hook.
  */
 
-describe(`'useMediaQuery' hook`, () => {
-  beforeAll(() => {
-    window.innerWidth = 320;
-    window.dispatchEvent(new Event('resize'));
+describe('useMediaQuery', () => {
+  afterEach(() => {
+    vi.resetAllMocks();
   });
 
-  it('should return `true` if matches', () => {
-    mockMatch(true);
+  it('returns true when the media query matches', () => {
+    mockMatchMedia(true);
 
-    const { result } = renderHook(() => useMediaQuery('(min-width: 480px)'));
+    const { result } = renderHook(() => useMediaQuery('(min-width: 800px)'));
 
     expect(result.current).toBe(true);
   });
 
-  it('should return `false` if not matches', () => {
-    mockMatch(false);
+  it('returns false when the media query does not match', () => {
+    mockMatchMedia(false);
 
-    const { result } = renderHook(() => useMediaQuery('(min-width: 3000px)'));
+    const { result } = renderHook(() => useMediaQuery('(min-width: 800px)'));
 
     expect(result.current).toBe(false);
+  });
+
+  it('updates the match state when the media query changes', () => {
+    mockMatchMedia(false);
+
+    const { rerender, result } = renderHook(
+      ({ query }) => useMediaQuery(query),
+      { initialProps: { query: '(min-width: 800px)' } }
+    );
+
+    expect(result.current).toBe(false);
+
+    mockMatchMedia(true);
+    rerender({ query: '(min-width: 1200px)' });
+
+    expect(result.current).toBe(true);
   });
 });

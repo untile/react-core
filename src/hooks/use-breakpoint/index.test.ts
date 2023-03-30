@@ -2,41 +2,22 @@
  * Module dependencies.
  */
 
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { mockMatchMedia } from 'tests/utils';
 import { renderHook } from '@testing-library/react-hooks/dom';
 import { useBreakpoint } from './';
-
-/**
- * Mock match.
- */
-
-function mockMatch(matches: boolean) {
-  Object.defineProperty(window, 'matchMedia', {
-    value: jest.fn().mockImplementation(query => ({
-      addEventListener: jest.fn(),
-      addListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-      matches,
-      media: query,
-      onchange: null,
-      removeEventListener: jest.fn(),
-      removeListener: jest.fn()
-    })),
-    writable: true
-  });
-}
 
 /**
  * Test `useBreakpoint` hook.
  */
 
 describe(`'useBreakpoint' hook`, () => {
-  beforeAll(() => {
-    window.innerWidth = 1300;
-    window.dispatchEvent(new Event('resize'));
+  afterEach(() => {
+    vi.resetAllMocks();
   });
 
   it('should return `true` if window width is within `lg` and `xl`', () => {
-    mockMatch(true);
+    mockMatchMedia(true);
 
     const { result } = renderHook(() => useBreakpoint('lg', 'xl'));
 
@@ -44,7 +25,7 @@ describe(`'useBreakpoint' hook`, () => {
   });
 
   it('should return `false` if window width is lower than `800px`', () => {
-    mockMatch(false);
+    mockMatchMedia(false);
 
     const { result } = renderHook(() => useBreakpoint(0, 800));
 

@@ -10,7 +10,8 @@
     "moduleResolution": "node",
     "outDir": "dist",
     "paths": {
-      "src/*": ["./src/*"]
+      "src/*": ["./src/*"],
+      "tests/*": ["./tests/*"]
     },
     "plugins": [{
       "displayName": true,
@@ -19,15 +20,15 @@
       "transform": "typescript-plugin-styled-components",
       "type": "config"
     }],
-    "rootDir": "src",
+    "rootDir": ".",
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "target": "es6"
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
+    "**/*.ts",
+    "**/*.tsx",
   ],
   "exclude": [
     "dist",

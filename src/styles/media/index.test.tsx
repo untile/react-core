@@ -2,6 +2,7 @@
  * Module dependencies.
  */
 
+import { describe, expect, it } from 'vitest';
 import { media } from '.';
 import { render } from '@testing-library/react';
 import React from 'react';
