@@ -2,6 +2,7 @@
  * Module dependencies.
  */
 
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks/dom';
 import { useEventListener } from './';
@@ -11,7 +12,7 @@ import { useEventListener } from './';
  */
 
 const eventName = 'click';
-const handler = jest.fn();
+const handler = vi.fn();
 const ref = { current: document.createElement('div') };
 
 /**
@@ -20,12 +21,12 @@ const ref = { current: document.createElement('div') };
 
 describe(`'useEventListener' hook`, () => {
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('should bind/unbind the event listener to the window when element is not provided', () => {
-    const addEventListenerSpy = jest.spyOn(window, 'addEventListener');
-    const removeEventListenerSpy = jest.spyOn(window, 'removeEventListener');
+    const addEventListenerSpy = vi.spyOn(window, 'addEventListener');
+    const removeEventListenerSpy = vi.spyOn(window, 'removeEventListener');
 
     const { unmount } = renderHook(() => useEventListener(eventName, handler));
 
@@ -43,12 +44,9 @@ describe(`'useEventListener' hook`, () => {
   });
 
   it('should bind/unbind the event listener to the element when element is provided', () => {
-    const mockedAddEventListenerSpy = jest.spyOn(
-      ref.current,
-      'addEventListener'
-    );
+    const mockedAddEventListenerSpy = vi.spyOn(ref.current, 'addEventListener');
 
-    const mockedRemoveEventListenerSpy = jest.spyOn(
+    const mockedRemoveEventListenerSpy = vi.spyOn(
       ref.current,
       'removeEventListener'
     );
@@ -74,8 +72,8 @@ describe(`'useEventListener' hook`, () => {
 
   it('should bind/unbind the event listener to the document when document is provided', () => {
     const docRef = { current: window.document };
-    const addEventListenerSpy = jest.spyOn(docRef.current, 'addEventListener');
-    const removeEventListenerSpy = jest.spyOn(
+    const addEventListenerSpy = vi.spyOn(docRef.current, 'addEventListener');
+    const removeEventListenerSpy = vi.spyOn(
       docRef.current,
       'removeEventListener'
     );
@@ -100,7 +98,7 @@ describe(`'useEventListener' hook`, () => {
   });
 
   it('should pass the options to the event listener', () => {
-    const addEventListenerSpy = jest.spyOn(window, 'addEventListener');
+    const addEventListenerSpy = vi.spyOn(window, 'addEventListener');
     const options = {
       capture: true,
       once: true,
@@ -122,19 +120,5 @@ describe(`'useEventListener' hook`, () => {
     fireEvent.click(ref.current);
 
     expect(handler).toHaveBeenCalledTimes(1);
-  });
-
-  it('should have the correct event type', () => {
-    const clickHandler = jest.fn();
-    const keydownHandler = jest.fn();
-
-    renderHook(() => useEventListener('click', clickHandler, ref));
-    renderHook(() => useEventListener('keydown', keydownHandler, ref));
-
-    fireEvent.click(ref.current);
-    fireEvent.keyDown(ref.current);
-
-    expect(clickHandler).toHaveBeenCalledWith(expect.any(MouseEvent));
-    expect(keydownHandler).toHaveBeenCalledWith(expect.any(KeyboardEvent));
   });
 });

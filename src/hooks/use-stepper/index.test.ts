@@ -3,7 +3,12 @@
  */
 
 import { act, renderHook } from '@testing-library/react-hooks';
+import { describe, expect, it } from 'vitest';
 import { useStepper } from './';
+
+/**
+ * Get steps.
+ */
 
 const getSteps = (maxSteps: number) =>
   [...Array(maxSteps).keys()].map(index => `step-${index}`);

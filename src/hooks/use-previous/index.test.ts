@@ -3,6 +3,7 @@
  */
 
 import { act, renderHook } from '@testing-library/react-hooks';
+import { describe, expect, it } from 'vitest';
 import { usePrevious } from './';
 import { useState } from 'react';
 
