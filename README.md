@@ -1,9 +1,25 @@
-# react-core
+<p align="center">
+  <br><img width="250" src="https://untile.pt/logo.png" /><br>
+</p>
 
-Untile-flavored components, hooks, styles and utils to be used in react projects.
+<h4 align="center">
+  Untile-flavored components, hooks, styles and utils to be used in react projects.
+</h4>
 
-[![npm version](https://img.shields.io/npm/v/@untile/react-core.svg?style=flat-square)](https://www.npmjs.com/package/@untile/react-core)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/untile/react-core/blob/main/LICENSE)
+<p align="center">
+  <a href="https://github.com/untile/react-core/actions/workflows/test.yml">
+    <img src="https://github.com/untile/react-core/actions/workflows/test.yml/badge.svg" alt="Test suite" />
+  </a>
+  <a href="https://www.npmjs.com/package/@untile/react-core">
+    <img src="https://img.shields.io/npm/v/@untile/react-core.svg?style=flat-square" alt="Current npm version." />
+  </a>
+  <a href="https://github.com/untile/react-core/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Untile react-core is released under the MIT license." />
+  </a>
+  <a href="https://twitter.com/intent/follow?screen_name=untiledigital">
+    <img src="https://img.shields.io/twitter/follow/untiledigital.svg?label=Follow%20@untiledigital" alt="Follow @untiledigital" />
+  </a>
+</p>
 
 ## Installation
 
@@ -18,7 +34,7 @@ yarn add @untile/react-core
 - [Styles ✨](docs/styles/README.md)
 - [Utils 🛠️](docs/utils/README.md)
 
-## Project setup
+## Setup
 
 ### Requirements
 
@@ -38,7 +54,7 @@ yarn
 yarn lint
 ```
 
-### Tests
+### Full test suite
 
 ```sh
 yarn test
