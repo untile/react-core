@@ -1,0 +1,17 @@
+# Auto-generated labeler.yml
+
+# Label for package 'utils'.
+utils:
+  - src/utils/**/*
+
+# Label for package 'styles'.
+styles:
+  - src/styles/**/*
+
+# Label for package 'components'.
+components:
+  - src/components/**/*
+
+# Label for package 'hooks'.
+hooks:
+  - src/hooks/**/*
