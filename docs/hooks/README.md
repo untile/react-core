@@ -1,4 +1,4 @@
-# React Hooks
+# 🪝 React Hooks
 
 A collection of [Untile](https://github.com/untile) react hooks to build web
 applications.

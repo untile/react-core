@@ -1,4 +1,4 @@
-# React utils
+# 🛠️ React utils
 
 A collection of [Untile](https://github.com/untile) utilities to build web
 applications based on typescript.

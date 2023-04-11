@@ -1,4 +1,4 @@
-# React Components
+# 📦 React Components
 
 A collection of [Untile](https://github.com/untile) react components to build
 web applications based on react.

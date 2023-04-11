@@ -1,4 +1,4 @@
-# React Styles
+# ✨ React Styles
 
 A collection of [Untile](https://github.com/untile) react styles utils to build
 web applications based on react.
