@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 /**
  * Module dependencies,
  */
@@ -33,19 +31,30 @@ type Media = Record<
  */
 
 function renderQuery(orientation: string, value: number) {
-  return (styles: TemplateStringsArray, ...interpolations: CssArgs) => css`
-    @media (${orientation}: ${value}px) {
-      ${css(styles, ...interpolations)}
-    }
-  `;
+  return (styles: TemplateStringsArray, ...interpolations: CssArgs) =>
+    css`
+      @media (${orientation}: ${value}px) {
+        ${css(styles, ...interpolations)}
+      }
+      /* stylelint-disable-next-line no-eol-whitespace */
+    `;
 }
+
+/**
+ * `initialQueries` constant.
+ */
+
+const initialQueries = {
+  max: {},
+  min: {}
+} as const;
 
 /**
  * Export `media` util.
  */
 
-export const media = Object.entries(breakpoints).reduce(
-  (queries, [key, value]: [Breakpoint, number]) => ({
+export const media = (Object.entries(breakpoints) as any).reduce(
+  (queries: typeof initialQueries, [key, value]: [Breakpoint, number]) => ({
     max: {
       ...queries.max,
       [key]: renderQuery('max-width', value - 1)
@@ -55,8 +64,5 @@ export const media = Object.entries(breakpoints).reduce(
       [key]: renderQuery('min-width', value)
     }
   }),
-  {
-    max: {},
-    min: {}
-  }
+  initialQueries
 ) as Media;

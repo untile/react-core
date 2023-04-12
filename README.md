@@ -11,17 +11,28 @@
 </h4>
 
 <p align="center">
+  <a href="https://github.com/untile/react-core/actions/workflows/test.yml">
+    <img
+      alt="GitHub Test Workflow Status"
+      src="https://img.shields.io/github/actions/workflow/status/untile/react-core/test.yml?label=Tests&style=for-the-badge"
+    />
+  </a>
   <a href="https://www.npmjs.com/package/@untile/react-core">
     <img src="https://img.shields.io/npm/v/@untile/react-core.svg?style=for-the-badge" alt="NPM version" />
   </a>
   <a href="https://github.com/untile/js-configs/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge" alt="Untile js-config is released under the MIT license." />
+    <img
+      alt="Untile js-config is released under the MIT license."
+      src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge"
+    />
   </a>
   <a href="https://twitter.com/intent/follow?screen_name=untiledigital">
-    <img src="https://img.shields.io/twitter/follow/untiledigital.svg?label=Follow%20@untiledigital&style=for-the-badge" alt="Follow @untiledigital" />
+    <img
+      alt="Follow @untiledigital"
+      src="https://img.shields.io/twitter/follow/untiledigital.svg?label=Follow%20@untiledigital&style=for-the-badge"
+    />
   </a>
 </p>
-
 
 ## Installation
 
@@ -36,7 +47,7 @@ yarn add @untile/react-core
 - [✨ Styles](docs/styles/README.md)
 - [🛠️ Utils](docs/utils/README.md)
 
-## Project setup
+## Setup
 
 ### Requirements
 
@@ -56,7 +67,7 @@ yarn
 yarn lint
 ```
 
-### Tests
+### Full test suite
 
 ```sh
 yarn test

@@ -28,7 +28,7 @@ NC='\033[0m' # No Color
 
   # Update package.json.
   echo "🛂 Updating \"package.json\"..."
-  node .bin/build-package-json.js
+  node bin/build-package-json.js
   sort-package-json
 
   echo -e "\n✅ ${GREEN}Build done!${NC}"

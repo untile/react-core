@@ -3,15 +3,8 @@
  */
 
 module.exports = {
-  extends: ['@untile/stylelint-config-untile', 'stylelint-config-prettier'],
+  extends: ['@untile/stylelint-config-react'],
   rules: {
-    'max-empty-lines': 1,
-    'property-no-unknown': null,
-    'selector-type-no-unknown': [
-      true,
-      {
-        ignoreTypes: ['/-styled-mixin/', '$dummyValue']
-      }
-    ]
+    'declaration-block-semicolon-space-after': 'always-single-line'
   }
 };
