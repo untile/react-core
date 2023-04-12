@@ -30,7 +30,7 @@
     "prepare": "husky install",
     "test": "vitest --coverage --passWithNoTests --watch false",
     "test-watch": "vitest --watch",
-    "version": "npm run changelog && git add -A CHANGELOG.md"
+    "version": "npm run changelog && bin/generate-coverage-badge.sh && git add -A CHANGELOG.md"
   },
   "lint-staged": {
     "*.@(ts|tsx)": [

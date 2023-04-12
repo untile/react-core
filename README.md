@@ -11,6 +11,10 @@
 </h4>
 
 <p align="center">
+  <img
+    alt="Test coverage Percentage"
+    src="docs/assets/coverage-badge.svg"
+  />
   <a href="https://github.com/untile/react-core/actions/workflows/test.yml">
     <img
       alt="GitHub Test Workflow Status"
