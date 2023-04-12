@@ -9,19 +9,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.18.0'
+          registry-url: 'https://registry.npmjs.com'
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Get version from tag
         id: tag_name
         run: |
           echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
         shell: bash
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.18.0'
 
       - name: Install module dependencies
         run: yarn
