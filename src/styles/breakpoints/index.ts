@@ -11,7 +11,7 @@ export const breakpoints = {
   xs: 480,
   xxl: 1920,
   xxs: 320
-};
+} as const;
 
 /**
  * Export `Breakpoint` type.
