@@ -33,10 +33,10 @@ type Media = Record<
 function renderQuery(orientation: string, value: number) {
   return (styles: TemplateStringsArray, ...interpolations: CssArgs) =>
     css`
+      /* stylelint-disable-next-line block-no-empty */
       @media (${orientation}: ${value}px) {
         ${css(styles, ...interpolations)}
       }
-      /* stylelint-disable-next-line no-eol-whitespace */
     `;
 }
 
