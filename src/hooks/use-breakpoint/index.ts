@@ -2,8 +2,8 @@
  * Module dependencies.
  */
 
-import { Breakpoint, breakpoints } from 'src/styles/breakpoints';
-import { useMediaQuery } from 'src/hooks/use-media-query';
+import { Breakpoint, breakpoints } from '../../styles/breakpoints';
+import { useMediaQuery } from '../use-media-query';
 import { useMemo } from 'react';
 
 /**
