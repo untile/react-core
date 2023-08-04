@@ -2,44 +2,40 @@
  * Module dependencies.
  */
 
-import { ifProp, prop } from 'styled-tools';
-import React, { useMemo } from 'react';
-import styled, { css } from 'styled-components';
+import { prop } from 'styled-tools';
+import React, { ComponentPropsWithRef, forwardRef, useMemo } from 'react';
+import styled from 'styled-components';
 
 /**
  * Export `SvgProps` interface.
  */
 
-export interface SvgProps {
-  className?: string;
+export type SvgProps = ComponentPropsWithRef<'span'> & {
   color?: string;
-  icon: string;
-  size: string | unknown;
-}
+  icon: string | TrustedHTML;
+  size?: string;
+};
 
 /**
  * `Wrapper` styled component.
  */
 
-const Wrapper = styled.span<Omit<SvgProps, 'icon'>>`
+const Wrapper = styled.span.withConfig({
+  shouldForwardProp: prop => !['color', 'size'].includes(prop)
+})<Omit<SvgProps, 'icon'>>`
+  color: ${prop('color', 'currentColor')};
   display: inline-block;
   line-height: 0;
   position: relative;
   width: ${prop('size')};
-
-  ${ifProp(
-    'color',
-    css`
-      color: ${prop('color')};
-    `
-  )}
 `;
 
 /**
  * Export `Svg` component.
  */
 
-export function Svg({ icon, ...rest }: SvgProps) {
+export const Svg = forwardRef<HTMLSpanElement, SvgProps>((props, ref) => {
+  const { icon, ...rest } = props;
   const innerHtml = useMemo(
     () => ({
       __html: icon // eslint-disable-line id-match
@@ -47,10 +43,11 @@ export function Svg({ icon, ...rest }: SvgProps) {
     [icon]
   );
 
-  return (
-    <Wrapper
-      {...rest}
-      dangerouslySetInnerHTML={innerHtml}
-    />
-  );
-}
+  return <Wrapper {...rest} dangerouslySetInnerHTML={innerHtml} ref={ref} />;
+});
+
+/**
+ * Display name.
+ */
+
+Svg.displayName = 'Svg';
