@@ -17,14 +17,17 @@ NC='\033[0m' # No Color
   # Generate commonjs modules.
   echo "📦 Generating commonjs modules..."
   tsc --project tsconfig.build.json --declaration false --module commonjs --target es6 --outDir dist/cjs
+  resolve-tspaths --project tsconfig.build.json --out dist/cjs
 
   # Generate esm modules.
   echo "📦 Generating esm modules..."
   tsc --project tsconfig.build.json --declaration false --module esnext --target es6 --outDir dist/esm
+  resolve-tspaths --project tsconfig.build.json --out dist/ems
 
   # Generate types.
   echo "📦 Generating types..."
   tsc --project tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist/types
+  resolve-tspaths --project tsconfig.build.json --out dist/types
 
   # Update package.json.
   echo "🛂 Updating \"package.json\"..."
