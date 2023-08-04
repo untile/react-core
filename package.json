@@ -26,7 +26,7 @@
     "lint-staged": "lint-staged",
     "lint:js": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:styles": "stylelint 'src/**/*.@(ts|tsx|js)'",
-    "lint:types": "tsc --noEmit",
+    "lint:types": "tsc",
     "prepare": "husky install",
     "test": "vitest --coverage --passWithNoTests --watch false",
     "test-watch": "vitest --watch",
@@ -34,7 +34,7 @@
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
-      "bash -c tsc --noEmit"
+      "bash -c tsc"
     ],
     "*.@(ts|tsx|js)": [
       "prettier --write --ignore-unknown",
