@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.0.0](https://github.com/untile/react-core/releases/tag/v2.0.0) (2023-08-04)
+- Remove dom props from Svg component [\#36](https://github.com/untile/react-core/pull/36) ([rafaelcruzazevedo](https://github.com/rafaelcruzazevedo))
+- Bump semver from 5.7.1 to 5.7.2 [\#31](https://github.com/untile/react-core/pull/31) ([dependabot](https://github.com/apps/dependabot))
+- Bump tough-cookie from 4.1.2 to 4.1.3 [\#30](https://github.com/untile/react-core/pull/30) ([dependabot](https://github.com/apps/dependabot))
+- Fix absolute paths to relative paths in build [\#34](https://github.com/untile/react-core/pull/34) ([rafaelcruzazevedo](https://github.com/rafaelcruzazevedo))
+- Bump node to v16 and dependencies [\#33](https://github.com/untile/react-core/pull/33) ([rafaelcruzazevedo](https://github.com/rafaelcruzazevedo))
+- Add Coverage badge generator script [\#25](https://github.com/untile/react-core/pull/25) ([flaviocastro](https://github.com/flaviocastro))
+- Update @untile/stylelint-config-react to v1.0.2 [\#26](https://github.com/untile/react-core/pull/26) ([flaviocastro](https://github.com/flaviocastro))
+
 ## [v1.0.0](https://github.com/untile/react-core/releases/tag/v1.0.0) (2023-04-12)
 - Fix NPM publish action wrong registry [\#24](https://github.com/untile/react-core/pull/24) ([flaviocastro](https://github.com/flaviocastro))
 - Update Untile dependencies to latest releases [\#23](https://github.com/untile/react-core/pull/23) ([flaviocastro](https://github.com/flaviocastro))
