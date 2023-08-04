@@ -9,7 +9,7 @@ import { FlattenSimpleInterpolation, css } from 'styled-components';
  * `CssArgs` type.
  */
 
-type CssArgs = TemplateStringsArray | [<Props>(props?: Props) => any] | [];
+type CssArgs = TemplateStringsArray | [<Props>(props?: Props) => []] | [];
 
 /**
  * `Media` type.
@@ -17,13 +17,7 @@ type CssArgs = TemplateStringsArray | [<Props>(props?: Props) => any] | [];
 
 type Media = Record<
   'min' | 'max',
-  Record<
-    Breakpoint,
-    (
-      styles: TemplateStringsArray,
-      ...interpolations: CssArgs
-    ) => FlattenSimpleInterpolation
-  >
+  Record<Breakpoint, (styles: TemplateStringsArray, ...interpolations: CssArgs) => FlattenSimpleInterpolation>
 >;
 
 /**
@@ -31,13 +25,12 @@ type Media = Record<
  */
 
 function renderQuery(orientation: string, value: number) {
-  return (styles: TemplateStringsArray, ...interpolations: CssArgs) =>
-    css`
-      /* stylelint-disable-next-line block-no-empty */
-      @media (${orientation}: ${value}px) {
-        ${css(styles, ...interpolations)}
-      }
-    `;
+  return (styles: TemplateStringsArray, ...interpolations: CssArgs) => css`
+    /* stylelint-disable-next-line */
+    @media (${orientation}: ${value}px) {
+      ${css(styles, ...interpolations)}
+    }
+  `;
 }
 
 /**
@@ -53,7 +46,7 @@ const initialQueries = {
  * Export `media` util.
  */
 
-export const media = (Object.entries(breakpoints) as any).reduce(
+export const media = (Object.entries(breakpoints) as []).reduce(
   (queries: typeof initialQueries, [key, value]: [Breakpoint, number]) => ({
     max: {
       ...queries.max,

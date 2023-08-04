@@ -55,7 +55,7 @@ yarn add @untile/react-core
 
 ### Requirements
 
-- Node.js >= 14.18
+- Node.js >= 16
 - NPM >= please-use-yarn
 - Yarn >= 1.22.0
 
